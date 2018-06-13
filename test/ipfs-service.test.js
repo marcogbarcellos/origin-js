@@ -46,13 +46,9 @@ describe('IpfsService', () => {
 
   describe('getFile', () => {
     // Skipped because of https://github.com/OriginProtocol/platform/issues/27
-    xit('should reject when listing cannot be found', done => {
-      ipfsService
-        .getFile('QmWHyrPWQnsz1wxHR219ooJDYTvxJPyZuDUPSDpdsAovN5')
-        .then(done.fail, error => {
-          expect(error).to.match(/Got ipfs cat error/)
-          done()
-        })
+    xit('should reject when listing cannot be found', async () => {
+      await expect(ipfsService
+        .getFile('QmWHyrPWQnsz1wxHR219ooJDYTvxJPyZuDUPSDpdsAovN5')).to.throw()
     })
   })
 
