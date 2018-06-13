@@ -47,8 +47,13 @@ describe('IpfsService', () => {
   describe('getFile', () => {
     // Skipped because of https://github.com/OriginProtocol/platform/issues/27
     xit('should reject when listing cannot be found', async () => {
-      await expect(ipfsService
-        .getFile('QmWHyrPWQnsz1wxHR219ooJDYTvxJPyZuDUPSDpdsAovN5')).to.throw()
+      try {
+        await expect(ipfsService
+          .getFile('QmWHyrPWQnsz1wxHR219ooJDYTvxJPyZuDUPSDpdsAovN5'))
+        throw Error('ipfsService.getFile Not supposed to succeed')
+      } catch (error) {
+        expect(error).to.be.instanceof(Error)  
+      }
     })
   })
 
