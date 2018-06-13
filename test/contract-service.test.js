@@ -75,7 +75,7 @@ describe('ContractService', function() {
   describe('getListing', () => {
     // Skipped because of https://github.com/OriginProtocol/platform/issues/27
     it('should reject when listing cannot be found', async () => {
-      await expect(contractService.getListing('foo')).to.throw
+      await expect(contractService.getListing('foo')).to.throw()
     })
 
     it('should get a listing object', async () => {
